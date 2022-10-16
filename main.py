@@ -70,12 +70,22 @@ print('Anna has {} apples and {} peaches'.format(mydict['apples'], mydict['peach
 #     else:
 #         lst.append(num ** 4)
 # print(lst)
-# (2)
+#(2)
 # list_comprehension = [num // 2 if num % 2 == 0 else num * 10 for num in range(10)]
 #
 # 12. Convert (1) to list comprehension
+lst = [num**2 if num % 2 == 1 else num**4 for num in range(10)]
+print(lst)
+
 # 13. Convert (2) to regular for with if-else
-#
+lst = []
+for num in range(10):
+    if num % 2 == 0:
+        lst.append(num // 2)
+    else:
+        lst.append(num * 10)
+print(lst)
+
 # (3)
 # d = {}
 # for num in range(1, 11):
@@ -99,9 +109,28 @@ print('Anna has {} apples and {} peaches'.format(mydict['apples'], mydict['peach
 # dict_comprehension = {x: x**3 if x**3 % 4 == 0 else x for x in range(10)}
 #
 # 14. Convert (3) to dict comprehension.
+mydict = {num: num ** 2 for num in range(1, 11) if num % 2 == 1}
+print(mydict)
+
 # 15*. Convert (4) to dict comprehension.
+dict_comprehension = {num: num**2 if num % 2 == 1 else num // 0.5 for num in range(1, 11)}
+print(dict_comprehension)
+
 # 16. Convert (5) to regular for with if.
+mydict = {}
+for num in range(10):
+    if num ** 3 % 4 == 0:
+        mydict[num] = num ** 3
+print(mydict)
+
 # 17*. Convert (6) to regular for with if-else.
+mydict = {}
+for num in range(10):
+    if num ** 3 % 4 == 0:
+        mydict[num] = num ** 3
+    else:
+        mydict[num] = num
+print(mydict)
 #
 # Lambda:
 #
@@ -116,18 +145,51 @@ print('Anna has {} apples and {} peaches'.format(mydict['apples'], mydict['peach
 # foo = lambda x, y, z: z if y < x and x > z else y
 #
 # 18. Convert (7) to lambda function
+foo = lambda x, y: x if x < y else y
+
 # 19*. Convert (8) to regular function
-#
+def foo(x, y, z):
+    if y < x & x > z:
+        return z
+    else:
+        return y
+
 # lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
 #
 # 20. Sort lst_to_sort from min to max
+lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
+lst_to_sort.sort()
+print(lst_to_sort)
+
 # 21. Sort lst_to_sort from max to min
+lst_to_sort.sort(reverse=True)
+print(lst_to_sort)
+
 # 22. Use map and lambda to update the lst_to_sort by multiply each element by 2
+mylist = list(map(lambda x: x*2, lst_to_sort))
+print(mylist)
+
 # 23*. Raise each list number to the corresponding number on another list:
 # list_A = [2, 3, 4]
 # list_B = [5, 6, 7]
+list_A = [2, 3, 4]
+list_B = [5, 6, 7]
+mylist= list(map(lambda x, y: x**y, list_A, list_B))
+print(mylist)
+
 # 24. Use filter and lambda to filter the number of a lst_to_sort with elem % 2 == 1.
+mylist = list(filter(lambda elem: elem % 2 == 1, lst_to_sort))
+print(mylist)
+
 # 25. Considering the range of values: b = range(-10, 10), use the function filter to return only negative numbers.
+b = range(-10, 10)
+mylist = list(filter(lambda numbers: numbers < 0, b))
+print(mylist)
+
 # 26*. Using the filter function, find the values that are common to the two lists:
 # list_1 = [1,2,3,5,7,9]
 # list_2 = [2,3,5,6,7,8]
+list_1 = [1,2,3,5,7,9]
+list_2 = [2,3,5,6,7,8]
+mylist = list(filter(lambda common: common in list_2, list_1))
+print(mylist)
