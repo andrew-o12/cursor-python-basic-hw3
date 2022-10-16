@@ -58,8 +58,7 @@ print("Anna has %(apples)s apples and %(peaches)s peaches." % {"apples": apple, 
 
 # 11*. With variable substitutions by name (hint: by using dict)
 mydict = {'apples': apple, 'peaches': peach}
-print("Anna has %(apples)s apples and %(peaches)s peaches." % {"apples": mydict['apples'],"peaches": mydict['peaches']})
-
+print('Anna has {} apples and {} peaches'.format(mydict['apples'], mydict['peaches']))
 
 #
 # Comprehensions:
@@ -71,7 +70,6 @@ print("Anna has %(apples)s apples and %(peaches)s peaches." % {"apples": mydict[
 #     else:
 #         lst.append(num ** 4)
 # print(lst)
-#
 # (2)
 # list_comprehension = [num // 2 if num % 2 == 0 else num * 10 for num in range(10)]
 #
